@@ -20,6 +20,13 @@ const columns = (rows) =>{
 				);
             }
             columnsArr.push(tmpArr);
+			if (j >= rows[j].length){
+				for (let i = 0; i < rows[j].length; i++){
+					columnsArr[i].push(
+						parseInt(rows[j][i])
+					);
+				}
+			}
             tmpArr = [];
         }
         return columnsArr;
@@ -28,7 +35,6 @@ const columns = (rows) =>{
 export class Matrix{
 	constructor(sentence){
 		this.rows = rows(sentence);
-		console.log(this.rows);
 		this.columns = columns(this.rows);
 	}
 }
